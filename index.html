@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#4CAF50">
     <title>examenB_24009727</title>
     <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="https://via.placeholder.com/192">
+    <link rel="apple-touch-icon" href="https://static.wixstatic.com/media/73e0e9_4be1314c63604867a2604f5506372a52~mv2.png">
     
     <style>
         /* ================= CSS: Diseño Adaptable y Tema ================= */
@@ -99,9 +99,10 @@
         /* Elementos específicos */
         .logo {
             max-width: 150px;
+            max-height: 150px;
             display: block;
             margin: 0 auto 15px auto;
-            border-radius: 50%;
+            object-fit: contain;
         }
 
         form {
@@ -124,7 +125,7 @@
         }
 
         .links-list li {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .links-list a {
@@ -133,6 +134,7 @@
             font-weight: bold;
             display: inline-block;
             transition: transform 0.3s, color 0.3s;
+            margin-bottom: 5px;
         }
 
         .links-list a:hover {
@@ -142,10 +144,12 @@
 
         .galileo-logo {
             max-width: 180px;
-            margin-top: 10px;
-            background-color: white;
-            padding: 5px;
+            display: block;
+            margin-top: 5px;
+            background-color: white; /* Respaldo para visibilidad en modo oscuro */
+            padding: 8px;
             border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         #autor-canvas {
@@ -200,8 +204,8 @@
                 <li><a href="#" onclick="event.preventDefault()">Facebook Oficial (Simulado)</a></li>
                 <li><a href="#" onclick="event.preventDefault()">Instagram Oficial (Simulado)</a></li>
                 <li>
-                    <a href="https://www.galileo.edu/" target="_blank" rel="noopener">Universidad Galileo</a><br>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Logo_Universidad_Galileo.png" alt="Logo Universidad Galileo" class="galileo-logo">
+                    <a href="https://www.galileo.edu/" target="_blank" rel="noopener">Universidad Galileo</a>
+                    <img src="https://i.ibb.co/8ZhTJDY/Galileo.png" alt="Logo Universidad Galileo" class="galileo-logo">
                 </li>
             </ul>
             <h3>Autora:</h3>
@@ -243,7 +247,7 @@
         // --- C: Validación de Formulario (Tienda) ---
         const form = document.getElementById('reporte-form');
         form.addEventListener('submit', (e) => {
-            e.preventDefault(); // Prevenir el envío por defecto
+            e.preventDefault();
 
             const linea = document.getElementById('linea').value.trim();
             const defecto = document.getElementById('defecto').value.trim();
@@ -283,14 +287,11 @@
             const canvas = document.getElementById('autor-canvas');
             const ctx = canvas.getContext('2d');
             
-            // Ajustar el tamaño real del canvas al tamaño del contenedor
             canvas.width = canvas.offsetWidth;
             canvas.height = canvas.offsetHeight;
 
-            // Dibujar el nombre "Andrea"
             ctx.font = "bold 40px 'Segoe UI', Tahoma, sans-serif";
             
-            // Crear un gradiente para el texto
             let gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
             gradient.addColorStop("0", "#4CAF50");
             gradient.addColorStop("0.5", "#e91e63");

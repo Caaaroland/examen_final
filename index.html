@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4CAF50">
+    <title>examenB_24009727</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="https://via.placeholder.com/192">
+    
+    <style>
+        /* ================= CSS: Diseño Adaptable y Tema ================= */
+        :root {
+            --bg-color: #f4f4f9;
+            --text-color: #333;
+            --container-bg: #ffffff;
+            --border-color: #ddd;
+            --primary: #4CAF50;
+            --primary-hover: #45a049;
+            --accent: #e91e63;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #f4f4f9;
+            --container-bg: #2d2d2d;
+            --border-color: #444;
+            --primary: #81c784;
+            --primary-hover: #66bb6a;
+            --accent: #f48fb1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Contenedores Principales */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .box {
+            background-color: var(--container-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .box h2 {
+            margin-bottom: 15px;
+            color: var(--accent);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        /* Elementos específicos */
+        .logo {
+            max-width: 150px;
+            display: block;
+            margin: 0 auto 15px auto;
+            border-radius: 50%;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .links-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .links-list li {
+            margin-bottom: 10px;
+        }
+
+        .links-list a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .links-list a:hover {
+            color: var(--accent);
+            transform: translateX(10px); /* Efecto hover CSS3 */
+        }
+
+        .galileo-logo {
+            max-width: 180px;
+            margin-top: 10px;
+            background-color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        #autor-canvas {
+            border: 1px dashed var(--border-color);
+            background-color: var(--bg-color);
+            display: block;
+            margin-top: 15px;
+            width: 100%;
+            height: 80px;
+        }
+
+        #geo-result {
+            margin-top: 15px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>examenB_24009727</h1>
+        <button id="theme-toggle">Alternar Modo Oscuro</button>
+    </header>
+
+    <div class="grid-container">
+        <section class="box" id="bienvenida">
+            <h2>Bienvenida</h2>
+            <img src="https://via.placeholder.com/150/e91e63/ffffff?text=Perlas+Yogurt" alt="Logo Perlas de Yogurt" class="logo">
+            <p style="margin-bottom: 15px;"><strong>Nuestra Política:</strong> En "Perlas de Yogurt Arte", nos dedicamos a ofrecer explosiones de sabor natural con ingredientes de la más alta calidad, revolucionando tu experiencia en bebidas y postres.</p>
+            <button id="btn-leer">Escuchar Compromiso de Calidad</button>
+        </section>
+
+        <section class="box" id="tienda">
+            <h2>Tienda / Reporte de Planta</h2>
+            <p style="margin-bottom: 15px;">Reporte de incidencias en producción:</p>
+            <form id="reporte-form">
+                <label for="linea">Línea de Producción:</label>
+                <input type="text" id="linea" placeholder="Ej. Línea A - Fresa">
+                
+                <label for="defecto">Defecto Identificado:</label>
+                <input type="text" id="defecto" placeholder="Ej. Perlas con tamaño irregular">
+                
+                <button type="submit">Enviar Reporte</button>
+            </form>
+        </section>
+
+        <section class="box" id="enlaces">
+            <h2>Enlaces y Multimedia</h2>
+            <ul class="links-list">
+                <li><a href="https://andreacarolinareye.wixsite.com/perlas-de-yogur-arte/negocio" target="_blank" rel="noopener">Sitio en Wix (T14)</a></li>
+                <li><a href="https://www.youtube.com/watch?v=aA9CGCMuvGg" target="_blank" rel="noopener">Video Promocional en YouTube</a></li>
+                <li><a href="#" onclick="event.preventDefault()">Facebook Oficial (Simulado)</a></li>
+                <li><a href="#" onclick="event.preventDefault()">Instagram Oficial (Simulado)</a></li>
+                <li>
+                    <a href="https://www.galileo.edu/" target="_blank" rel="noopener">Universidad Galileo</a><br>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Logo_Universidad_Galileo.png" alt="Logo Universidad Galileo" class="galileo-logo">
+                </li>
+            </ul>
+            <h3>Autora:</h3>
+            <canvas id="autor-canvas"></canvas>
+        </section>
+
+        <section class="box" id="salida">
+            <h2>Salida / Auditoría</h2>
+            <p style="margin-bottom: 15px;">Para validar este reporte, requerimos la ubicación exacta de la planta auditada.</p>
+            <button id="btn-geo">Capturar Ubicación de la Planta</button>
+            <p id="geo-result"></p>
+        </section>
+    </div>
+
+    <script>
+        // --- A: Toggle de Tema (Modo Claro/Oscuro) ---
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        });
+
+        // --- B: Web Speech API (Bienvenida) ---
+        const btnLeer = document.getElementById('btn-leer');
+        btnLeer.addEventListener('click', () => {
+            if ('speechSynthesis' in window) {
+                const mensaje = new SpeechSynthesisUtterance("Nuestro compromiso de calidad garantiza que cada perla de yogurt mantenga una textura perfecta y un sabor inigualable, utilizando procesos 100% esterilizados.");
+                mensaje.lang = 'es-ES';
+                window.speechSynthesis.speak(mensaje);
+            } else {
+                alert("Lo sentimos, tu navegador no soporta la lectura de texto en voz alta.");
+            }
+        });
+
+        // --- C: Validación de Formulario (Tienda) ---
+        const form = document.getElementById('reporte-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevenir el envío por defecto
+
+            const linea = document.getElementById('linea').value.trim();
+            const defecto = document.getElementById('defecto').value.trim();
+
+            if (linea === "" || defecto === "") {
+                alert("Error: Ningún campo puede estar vacío. Por favor, complete Línea de Producción y Defecto.");
+            } else {
+                alert("¡Registro exitoso! El reporte de la línea '" + linea + "' ha sido enviado.");
+                form.reset();
+            }
+        });
+
+        // --- D: Geolocalización (Salida) ---
+        const btnGeo = document.getElementById('btn-geo');
+        const geoResult = document.getElementById('geo-result');
+
+        btnGeo.addEventListener('click', () => {
+            if ("geolocation" in navigator) {
+                geoResult.textContent = "Obteniendo coordenadas...";
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        geoResult.innerHTML = `<strong>Ubicación capturada:</strong><br>Latitud: ${lat} <br>Longitud: ${lon}`;
+                    },
+                    (error) => {
+                        geoResult.textContent = "Error al obtener la ubicación. Asegúrate de dar los permisos correspondientes.";
+                    }
+                );
+            } else {
+                geoResult.textContent = "Tu navegador no soporta Geolocalización.";
+            }
+        });
+
+        // --- E: Canvas (Enlaces / Autora) ---
+        window.addEventListener('load', () => {
+            const canvas = document.getElementById('autor-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Ajustar el tamaño real del canvas al tamaño del contenedor
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+
+            // Dibujar el nombre "Andrea"
+            ctx.font = "bold 40px 'Segoe UI', Tahoma, sans-serif";
+            
+            // Crear un gradiente para el texto
+            let gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+            gradient.addColorStop("0", "#4CAF50");
+            gradient.addColorStop("0.5", "#e91e63");
+            gradient.addColorStop("1.0", "#2196F3");
+
+            ctx.fillStyle = gradient;
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText("Andrea", canvas.width / 2, canvas.height / 2);
+        });
+
+        // --- F: Registro del Service Worker (PWA) ---
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registrado con éxito. Scope: ', registration.scope);
+                    })
+                    .catch(err => {
+                        console.log('Fallo al registrar el ServiceWorker: ', err);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
